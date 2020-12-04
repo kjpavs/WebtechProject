@@ -9,8 +9,11 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const votername = req.body.votername;
+  const fathername = req.body.fathername;
   const aadharcardno = req.body.aadharcardno;
-  const newVoter = new Voter({votername,aadharcardno});
+  const voterid = req.body.voterid;
+  const dob = Date.parse(req.body.dob);
+  const newVoter = new Voter({votername,aadharcardno,fathername,dob,voterid});
 
   newVoter.save()
     .then(() => res.json('Voter added!'))
