@@ -4,9 +4,8 @@ const Schema = mongoose.Schema;
 
 const choiceSchema = new Schema({
   votername: { type: String, required: true },
-  aadharcardno: { type: String, required: true },
+  voterid: { type: String, required: true },
   choice: { type: String, required: true },
-  date: { type: Date, required: true },
 }, {
   timestamps: true,
 });
