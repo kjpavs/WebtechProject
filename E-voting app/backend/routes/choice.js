@@ -9,15 +9,13 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const votername = req.body.votername;
-  const aadharcardno = req.body.aadharcardno;
+  const voterid = req.body.voterid;
   const choice = req.body.choice;
-  const date = Date.parse(req.body.date);
 
   const newVoterchoice = new Voterchoice({
     votername,
-    aadharcardno,
+    voterid,
     choice,
-    date,
   });
 
   newVoterchoice.save()
@@ -40,8 +38,7 @@ router.route('/:id').get((req, res) => {
       .then(voterchoice => {
         voterchoice.votername = req.body.votername;
         voterchoice.choice = req.body.choice;
-        voterchoice.aadharcarno = req.body.aadharcardno;
-        voterchoice.date = Date.parse(req.body.date);
+        voterchoice.voterid = req.body.voterid;
   
         voterchoice.save()
           .then(() => res.json('Voterchoice updated!'))
